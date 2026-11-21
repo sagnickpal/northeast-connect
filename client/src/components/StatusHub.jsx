@@ -23,7 +23,6 @@ import {
   Mountain
 } from 'lucide-react';
 import { uiTranslations } from '../data/translations';
-import { TricolorStrip } from './Emblems';
 
 export default function StatusHub({
   shelters,
@@ -91,34 +90,33 @@ export default function StatusHub({
   return (
     <div className="space-y-6">
       {/* =========================================================================
-          OFFICIAL NDMA GOVERNMENT HERO & DISASTER SITUATION BANNER
+          MODERN SITUATIONAL HERO BANNER
          ========================================================================= */}
-      <section className="bg-gradient-to-r from-[#002244] via-[#003366] to-[#0b3b60] text-white rounded-xl shadow-lg border border-[#003366] overflow-hidden">
-        <TricolorStrip height="h-1.5" />
+      <section className="bg-gradient-to-r from-slate-900 via-slate-800 to-indigo-950 text-white rounded-xl shadow-lg border border-slate-700/80 overflow-hidden">
         <div className="p-5 md:p-6">
           <div className="flex flex-wrap items-start justify-between gap-4 border-b border-white/10 pb-4">
             <div>
               <div className="flex items-center gap-2 mb-1">
-                <span className="bg-[#FF9933] text-slate-950 font-black text-[10px] uppercase px-2 py-0.5 rounded tracking-wider shadow-sm">
-                  NDMA Official Operations
+                <span className="bg-rose-600 text-white font-black text-[10px] uppercase px-2 py-0.5 rounded tracking-wider shadow-sm">
+                  Live Operations
                 </span>
-                <span className="text-xs text-amber-200 font-semibold hidden sm:inline">
-                  पूर्वोत्तर भारत आपदा नियंत्रण एवं समन्वय प्रणाली
+                <span className="text-xs text-slate-300 font-semibold">
+                  Multi-Hazard Crisis Response • North East India
                 </span>
               </div>
               <h2 className="text-xl sm:text-2xl font-black tracking-tight text-white">
-                North East Disaster Status & Relief Coordination Hub
+                Disaster Status & Community Relief Coordination Hub
               </h2>
-              <p className="text-xs sm:text-sm text-slate-200 mt-1 max-w-3xl leading-relaxed">
-                Integrated State Disaster Management Authorities (ASDMA, MSDMA, NSDMA) and Central Agencies (NDRF, CWC, BRO) multi-hazard operations monitoring portal for North East India.
+              <p className="text-xs sm:text-sm text-slate-300 mt-1 max-w-3xl leading-relaxed">
+                Aggregated, verified field reports on safe relief shelter capacity, national highway blockages, Brahmaputra/Barak river gauges, and public health directives.
               </p>
             </div>
 
             <div className="text-right flex-shrink-0 bg-white/10 border border-white/20 px-3.5 py-2 rounded-lg backdrop-blur-sm">
-              <div className="text-[10px] text-amber-300 uppercase tracking-widest font-black">Control Room Protocol</div>
+              <div className="text-[10px] text-amber-300 uppercase tracking-widest font-black">Monsoon Watch</div>
               <div className="text-xs font-black text-white mt-0.5 flex items-center justify-end gap-1.5">
                 <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-                <span>MONSOON FLOOD ALERT LEVEL 3</span>
+                <span>FLOOD ALERT ACTIVE</span>
               </div>
             </div>
           </div>

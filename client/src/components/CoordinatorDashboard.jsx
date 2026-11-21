@@ -23,7 +23,6 @@ import {
   Users,
   Compass
 } from 'lucide-react';
-import { TricolorStrip } from './Emblems';
 
 export default function CoordinatorDashboard({
   requests,
@@ -64,23 +63,21 @@ export default function CoordinatorDashboard({
 
   return (
     <div className="space-y-6">
-      {/* Official Government Command Header */}
+      {/* Command Operations Header */}
       <div className="bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden">
-        <div className="bg-gov-navy text-white px-5 py-4 border-b border-gov-blue">
+        <div className="bg-slate-900 text-white px-5 py-4 border-b border-slate-800">
           <div className="flex flex-wrap items-center justify-between gap-4">
             <div>
               <div className="flex items-center gap-2 mb-1">
-                <span className="bg-gov-saffron text-slate-950 font-black text-[10px] px-2 py-0.5 rounded uppercase tracking-wide">
-                  Incident Response System (IRS)
+                <span className="bg-purple-600 text-white font-black text-[10px] px-2 py-0.5 rounded uppercase tracking-wide">
+                  Incident Management
                 </span>
-                <span className="text-slate-300 text-xs font-semibold">
-                  Disaster Management Division • Ministry of Home Affairs
+                <span className="text-slate-400 text-xs font-semibold">
+                  Field Operations & Rapid Triage
                 </span>
               </div>
               <h2 className="text-xl md:text-2xl font-black text-white flex items-center gap-2">
-                <span>राज्य आपदा परिचालन केंद्र (SEOC)</span>
-                <span className="text-gov-saffron font-light hidden md:inline">|</span>
-                <span className="text-slate-200 text-lg md:text-xl font-bold hidden md:inline">State Emergency Operations Centre & Triage</span>
+                <span>Disaster Operations Command Center</span>
               </h2>
               <p className="text-xs text-slate-300 mt-1">
                 Automated triage engine, 15-minute SOS SLA monitoring, multi-hazard data freshness audits, and cross-channel public broadcasts.
@@ -89,23 +86,23 @@ export default function CoordinatorDashboard({
 
             {/* Live KPI Metric Badges */}
             <div className="flex items-center gap-2">
-              <div className="bg-gov-blue/80 border border-white/20 px-3.5 py-2 rounded-xl text-center min-w-[95px]">
+              <div className="bg-slate-800 border border-slate-700 px-3.5 py-2 rounded-xl text-center min-w-[95px]">
                 <div className="text-[10px] text-red-300 font-bold uppercase tracking-wider">SLA Breaches</div>
                 <div className="text-xl font-black text-red-400 mt-0.5 flex items-center justify-center gap-1">
-                  <Flame className="w-4 h-4 text-gov-red" />
+                  <Flame className="w-4 h-4 text-rose-500" />
                   <span>{escalatedRequests.length}</span>
                 </div>
               </div>
 
-              <div className="bg-gov-blue/80 border border-white/20 px-3.5 py-2 rounded-xl text-center min-w-[95px]">
+              <div className="bg-slate-800 border border-slate-700 px-3.5 py-2 rounded-xl text-center min-w-[95px]">
                 <div className="text-[10px] text-amber-300 font-bold uppercase tracking-wider">Stale Data</div>
                 <div className="text-xl font-black text-amber-400 mt-0.5 flex items-center justify-center gap-1">
-                  <Clock className="w-4 h-4 text-gov-saffron" />
+                  <Clock className="w-4 h-4 text-amber-400" />
                   <span>{staleShelters.length + staleRoads.length}</span>
                 </div>
               </div>
 
-              <div className="bg-gov-blue/80 border border-white/20 px-3.5 py-2 rounded-xl text-center min-w-[95px]">
+              <div className="bg-slate-800 border border-slate-700 px-3.5 py-2 rounded-xl text-center min-w-[95px]">
                 <div className="text-[10px] text-purple-300 font-bold uppercase tracking-wider">Crowd Signals</div>
                 <div className="text-xl font-black text-purple-300 mt-0.5 flex items-center justify-center gap-1">
                   <Radio className="w-4 h-4 text-purple-300" />
@@ -115,8 +112,6 @@ export default function CoordinatorDashboard({
             </div>
           </div>
         </div>
-
-        <TricolorStrip className="h-1" />
 
         {/* Sub-Tab Navigation */}
         <div className="p-3 bg-slate-50 border-b border-slate-200 flex flex-wrap items-center justify-between gap-2">
@@ -184,7 +179,7 @@ export default function CoordinatorDashboard({
             <div className="flex items-center gap-2">
               <Flame className="w-4 h-4 text-gov-red flex-shrink-0" />
               <span>
-                <strong>15-Minute SOS Response SLA:</strong> Under NDMA Incident Response Guidelines, all high-priority and roof-submerged SOS cases trigger an automated SMS/alert to the district Incident Commander if unassigned beyond 15 minutes.
+                <strong>15-Minute SOS Response SLA:</strong> Under incident response guidelines, all high-priority and roof-submerged SOS cases trigger an automated SMS/alert to the district coordinator if unassigned beyond 15 minutes.
               </span>
             </div>
             <span className="font-black bg-red-200 text-red-900 px-2.5 py-1 rounded text-[11px] uppercase tracking-wide">

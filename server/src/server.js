@@ -316,4 +316,9 @@ const startServer = (port) => {
   });
 };
 
-startServer(PORT);
+// Export app for Vercel serverless functions and testing
+export default app;
+
+if (process.env.NODE_ENV !== 'test' && !process.env.VERCEL) {
+  startServer(PORT);
+}

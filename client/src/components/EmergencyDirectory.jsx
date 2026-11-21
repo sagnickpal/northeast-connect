@@ -12,7 +12,6 @@ import {
   ExternalLink,
   Phone
 } from 'lucide-react';
-import { TricolorStrip } from './Emblems';
 
 export default function EmergencyDirectory({ contacts }) {
   const [searchQuery, setSearchQuery] = useState('');
@@ -38,27 +37,27 @@ export default function EmergencyDirectory({ contacts }) {
 
   return (
     <div className="space-y-6">
-      {/* Official NDMA Directory Header */}
-      <div className="bg-[#003366] text-white p-5 rounded-lg shadow-md border-b-2 border-[#d97706]">
+      {/* Directory Header */}
+      <div className="bg-slate-900 text-white p-5 rounded-2xl shadow-md border border-slate-800">
         <div className="flex flex-wrap items-center justify-between gap-3">
           <div>
             <div className="flex items-center gap-2 mb-1">
-              <span className="bg-[#FF9933] text-slate-950 font-black text-[10px] uppercase px-2 py-0.5 rounded">
-                MHA & NDMA Official
+              <span className="bg-red-600 text-white font-black text-[10px] uppercase px-2 py-0.5 rounded">
+                24x7 Emergency Hotlines
               </span>
-              <span className="text-xs text-amber-200 font-semibold">
-                राष्ट्रीय आपदा प्रबंधन दूरभाष संदर्शिका
+              <span className="text-xs text-slate-300 font-semibold">
+                North East Helplines & Rescue Units
               </span>
             </div>
             <h2 className="text-xl font-extrabold text-white">
-              Official Multi-Agency Emergency Helplines & Rescue Directory
+              Multi-Agency Emergency Helplines & Rescue Directory
             </h2>
-            <p className="text-xs text-slate-200 mt-1">
+            <p className="text-xs text-slate-300 mt-1">
               Direct hotlines to State Disaster Operations Centres (SEOC), NDRF Battalions, SDRF Speedboat Units, and Tertiary Trauma Hospitals across the 8 North East States.
             </p>
           </div>
-          <div className="bg-white/10 border border-white/20 p-2.5 rounded text-right">
-            <div className="text-[10px] text-amber-300 uppercase font-black">24x7 Citizen Line</div>
+          <div className="bg-slate-800 border border-slate-700 p-2.5 rounded-xl text-right">
+            <div className="text-[10px] text-amber-400 uppercase font-black">24x7 Citizen Line</div>
             <div className="text-sm font-black text-white">TOLL-FREE: 112 / 1070</div>
           </div>
         </div>

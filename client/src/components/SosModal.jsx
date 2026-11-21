@@ -10,7 +10,6 @@ import {
   CheckCircle2, 
   ShieldAlert 
 } from 'lucide-react';
-import { TricolorStrip } from './Emblems';
 
 export default function SosModal({ isOpen, onClose, onSubmitSos }) {
   if (!isOpen) return null;
@@ -76,31 +75,29 @@ export default function SosModal({ isOpen, onClose, onSubmitSos }) {
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/70 backdrop-blur-sm overflow-y-auto">
       <div className="bg-white rounded-2xl shadow-2xl max-w-lg w-full max-h-[90vh] flex flex-col border border-slate-300 overflow-hidden my-auto">
-        {/* Official Government Header */}
-        <div className="bg-gov-navy text-white px-5 py-4 flex items-center justify-between">
+        {/* Header */}
+        <div className="bg-slate-900 text-white px-5 py-4 flex items-center justify-between border-b border-slate-800">
           <div className="flex items-center gap-3">
-            <div className="bg-gov-red p-2 rounded-lg text-white">
+            <div className="bg-red-600 p-2 rounded-lg text-white">
               <AlertTriangle className="w-5 h-5" />
             </div>
             <div>
               <div className="flex items-center gap-2">
-                <span className="bg-gov-saffron text-slate-950 text-[10px] font-black uppercase px-1.5 py-0.2 rounded">
-                  NDMA SOS
+                <span className="bg-red-600 text-white text-[10px] font-black uppercase px-1.5 py-0.5 rounded">
+                  PRIORITY SOS
                 </span>
-                <span className="text-[11px] text-slate-300 font-semibold">Incident Response Form</span>
+                <span className="text-[11px] text-slate-400 font-semibold">Incident Dispatch</span>
               </div>
-              <h3 className="font-black text-base text-white">Emergency Assistance / SOS Incident Dispatch</h3>
+              <h3 className="font-black text-base text-white">Emergency Assistance / SOS Dispatch</h3>
             </div>
           </div>
           <button 
             onClick={onClose} 
-            className="p-1.5 hover:bg-gov-blue rounded-lg text-slate-300 hover:text-white transition-colors"
+            className="p-1.5 hover:bg-slate-800 rounded-lg text-slate-400 hover:text-white transition-colors"
           >
             <X className="w-5 h-5" />
           </button>
         </div>
-
-        <TricolorStrip className="h-1" />
 
         {/* Form Body */}
         <form onSubmit={handleSubmit} className="p-5 space-y-4 overflow-y-auto">

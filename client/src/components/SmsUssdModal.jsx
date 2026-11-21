@@ -10,7 +10,6 @@ import {
   Smartphone,
   ShieldCheck
 } from 'lucide-react';
-import { TricolorStrip } from './Emblems';
 
 export default function SmsUssdModal({ isOpen, onClose }) {
   if (!isOpen) return null;
@@ -54,31 +53,29 @@ export default function SmsUssdModal({ isOpen, onClose }) {
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/70 backdrop-blur-sm overflow-y-auto">
       <div className="bg-white rounded-2xl shadow-2xl max-w-lg w-full border border-slate-300 overflow-hidden my-auto">
-        {/* Government Header */}
-        <div className="bg-gov-navy text-white px-5 py-4 flex items-center justify-between">
+        {/* Header */}
+        <div className="bg-slate-900 text-white px-5 py-4 flex items-center justify-between border-b border-slate-800">
           <div className="flex items-center gap-3">
-            <div className="bg-gov-saffron text-slate-950 p-2 rounded-lg">
+            <div className="bg-indigo-600/30 p-2 rounded-lg border border-indigo-400/30 text-indigo-400">
               <Smartphone className="w-5 h-5" />
             </div>
             <div>
               <div className="flex items-center gap-2">
-                <span className="bg-gov-saffron text-slate-950 text-[10px] font-black uppercase px-1.5 py-0.2 rounded">
+                <span className="bg-amber-400 text-slate-950 text-[10px] font-black uppercase px-1.5 py-0.5 rounded">
                   2G / Telecom Fallback
                 </span>
-                <span className="text-[11px] text-slate-300 font-semibold">Toll-Free 112 Gateway</span>
+                <span className="text-[11px] text-slate-400 font-semibold">Toll-Free 112 Gateway</span>
               </div>
               <h3 className="font-black text-base text-white">Offline SMS & USSD Emergency Gateway</h3>
             </div>
           </div>
           <button 
             onClick={onClose} 
-            className="p-1.5 hover:bg-gov-blue rounded-lg text-slate-300 hover:text-white transition-colors"
+            className="p-1.5 hover:bg-slate-800 rounded-lg text-slate-400 hover:text-white transition-colors"
           >
             <X className="w-5 h-5" />
           </button>
         </div>
-
-        <TricolorStrip className="h-1" />
 
         {/* Sub-Tabs */}
         <div className="flex border-b border-slate-200 bg-slate-50 text-xs font-bold">
@@ -233,7 +230,7 @@ export default function SmsUssdModal({ isOpen, onClose }) {
                 {ussdStep === 'menu' && (
                   <div>
                     <p className="text-slate-200 font-bold mb-2">
-                      NDMA NORTH EAST CONNECT USSD GATEWAY:
+                      NORTH EAST CONNECT USSD GATEWAY:
                     </p>
                     <p>1. Nearest Safe Relief Camps</p>
                     <p>2. Broadcast Flash SOS to District Control Room</p>

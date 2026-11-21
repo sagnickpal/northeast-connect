@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { X, BellRing, Sun, Volume2, VolumeX, ShieldAlert, Radio } from 'lucide-react';
-import { TricolorStrip } from './Emblems';
 
 export default function EmergencyAlarmModal({ isOpen, onClose }) {
   if (!isOpen) return null;
@@ -115,17 +114,17 @@ export default function EmergencyAlarmModal({ isOpen, onClose }) {
       style={strobeActive ? { backgroundColor: strobeColor } : {}}
     >
       <div className="bg-white rounded-2xl shadow-2xl max-w-md w-full border border-slate-300 overflow-hidden my-auto">
-        <div className="bg-gov-red text-white px-5 py-4 flex items-center justify-between">
+        <div className="bg-red-600 text-white px-5 py-4 flex items-center justify-between">
           <div className="flex items-center gap-3">
             <div className="bg-white/20 p-2 rounded-lg">
               <BellRing className="w-5 h-5 text-white" />
             </div>
             <div>
               <div className="flex items-center gap-2">
-                <span className="bg-gov-saffron text-slate-950 text-[10px] font-black uppercase px-1.5 py-0.2 rounded">
+                <span className="bg-amber-400 text-slate-950 text-[10px] font-black uppercase px-1.5 py-0.5 rounded">
                   Acoustic & Optical
                 </span>
-                <span className="text-[11px] text-red-100 font-semibold">Civil Defence Alarm</span>
+                <span className="text-[11px] text-red-100 font-semibold">Rescue Beacon</span>
               </div>
               <h3 className="font-black text-base text-white">Emergency Siren & Rescue Strobe</h3>
             </div>
@@ -136,13 +135,11 @@ export default function EmergencyAlarmModal({ isOpen, onClose }) {
               setStrobeActive(false);
               onClose();
             }} 
-            className="p-1.5 hover:bg-red-800 rounded-lg text-white transition-colors"
+            className="p-1.5 hover:bg-red-700 rounded-lg text-white transition-colors"
           >
             <X className="w-5 h-5" />
           </button>
         </div>
-
-        <TricolorStrip className="h-1" />
 
         <div className="p-5 space-y-5 text-center">
           <p className="text-xs text-slate-600 leading-relaxed">

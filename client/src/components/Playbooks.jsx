@@ -20,7 +20,6 @@ import {
   BookmarkCheck,
   Download
 } from 'lucide-react';
-import { TricolorStrip } from './Emblems';
 
 const defaultGoBagItems = [
   { id: 'water', label: 'Drinking water (3 litres per person per day for 3 days in sealed containers)', category: 'VITAL', checked: false },
@@ -73,41 +72,37 @@ export default function Playbooks({ lowBandwidth }) {
     <div className="space-y-6">
       {/* Official Government Publication Header Banner */}
       <div className="bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden">
-        <div className="bg-gov-navy text-white px-5 py-4 border-b border-gov-blue">
+        <div className="bg-slate-900 text-white px-5 py-4 border-b border-slate-800">
           <div className="flex flex-wrap items-center justify-between gap-3">
             <div>
               <div className="flex items-center gap-2 mb-1">
-                <span className="bg-gov-saffron text-slate-950 text-[10px] font-black uppercase px-2 py-0.5 rounded tracking-wide">
-                  NDMA Guidelines & SOPs
+                <span className="bg-rose-600 text-white text-[10px] font-black uppercase px-2 py-0.5 rounded tracking-wide">
+                  Survival SOPs
                 </span>
-                <span className="text-slate-300 text-xs font-semibold">
-                  National Disaster Management Authority • Govt. of India
+                <span className="text-slate-400 text-xs font-semibold">
+                  Disaster Preparedness & Action Playbooks
                 </span>
               </div>
               <h2 className="text-xl md:text-2xl font-black tracking-tight text-white flex items-center gap-2">
-                <span>राष्ट्रीय आपदा प्रबंधन दिशा-निर्देश (एसओपी)</span>
-                <span className="text-gov-saffron font-light hidden md:inline">|</span>
-                <span className="text-slate-200 text-lg md:text-xl font-bold hidden md:inline">National Disaster Management Standard Operating Procedures</span>
+                <span>Emergency Survival Playbooks & 72-Hour Family Go-Bag</span>
               </h2>
               <p className="text-xs text-slate-300 mt-1">
-                Standardised survival protocols, Aapda Mitra civil defence preparedness checklists, and hazard mitigation manuals for the North Eastern Region.
+                Standardised survival protocols, civil defence checklists, and hazard mitigation manuals for the North Eastern Region.
               </p>
             </div>
 
             <div className="flex items-center gap-2">
               <button
                 onClick={() => window.print()}
-                className="bg-gov-blue hover:bg-slate-700 text-white text-xs font-bold px-3.5 py-2 rounded-lg border border-white/20 flex items-center gap-2 shadow-sm transition-all"
-                title="Print or Save official PDF manual for offline distribution"
+                className="bg-slate-800 hover:bg-slate-700 text-white text-xs font-bold px-3.5 py-2 rounded-lg border border-slate-700 flex items-center gap-2 shadow-sm transition-all"
+                title="Print or Save PDF manual for offline distribution"
               >
-                <Printer className="w-4 h-4 text-gov-saffron" />
+                <Printer className="w-4 h-4 text-rose-400" />
                 <span>Print / Save PDF SOP</span>
               </button>
             </div>
           </div>
         </div>
-
-        <TricolorStrip className="h-1" />
 
         {/* Playbook Navigation Tabs */}
         <div className="p-3 bg-slate-50 border-b border-slate-200 flex flex-wrap items-center justify-between gap-2">
@@ -116,11 +111,11 @@ export default function Playbooks({ lowBandwidth }) {
               onClick={() => setActivePlaybook('gobag')}
               className={`px-3.5 py-2 rounded-lg text-xs md:text-sm font-bold flex items-center gap-2 transition-all ${
                 activePlaybook === 'gobag'
-                  ? 'bg-gov-navy text-white shadow-md border-b-2 border-gov-saffron'
+                  ? 'bg-rose-600 text-white shadow-md'
                   : 'bg-white text-slate-700 hover:bg-slate-100 border border-slate-200'
               }`}
             >
-              <Backpack className={`w-4 h-4 ${activePlaybook === 'gobag' ? 'text-gov-saffron' : 'text-slate-600'}`} />
+              <Backpack className={`w-4 h-4 ${activePlaybook === 'gobag' ? 'text-white' : 'text-slate-600'}`} />
               <span>72-Hr Family Go-Bag</span>
               <span className={`text-[11px] px-1.5 py-0.2 rounded-full font-bold ${
                 activePlaybook === 'gobag' ? 'bg-white/20 text-white' : 'bg-slate-100 text-slate-700'
@@ -133,11 +128,11 @@ export default function Playbooks({ lowBandwidth }) {
               onClick={() => setActivePlaybook('flood')}
               className={`px-3.5 py-2 rounded-lg text-xs md:text-sm font-bold flex items-center gap-2 transition-all ${
                 activePlaybook === 'flood'
-                  ? 'bg-gov-navy text-white shadow-md border-b-2 border-gov-saffron'
+                  ? 'bg-blue-600 text-white shadow-md'
                   : 'bg-white text-slate-700 hover:bg-slate-100 border border-slate-200'
               }`}
             >
-              <Waves className={`w-4 h-4 ${activePlaybook === 'flood' ? 'text-blue-400' : 'text-blue-600'}`} />
+              <Waves className={`w-4 h-4 ${activePlaybook === 'flood' ? 'text-white' : 'text-blue-600'}`} />
               <span>Floods & Brahmaputra Protocol</span>
             </button>
 
@@ -145,11 +140,11 @@ export default function Playbooks({ lowBandwidth }) {
               onClick={() => setActivePlaybook('landslide')}
               className={`px-3.5 py-2 rounded-lg text-xs md:text-sm font-bold flex items-center gap-2 transition-all ${
                 activePlaybook === 'landslide'
-                  ? 'bg-gov-navy text-white shadow-md border-b-2 border-gov-saffron'
+                  ? 'bg-amber-600 text-white shadow-md'
                   : 'bg-white text-slate-700 hover:bg-slate-100 border border-slate-200'
               }`}
             >
-              <Mountain className={`w-4 h-4 ${activePlaybook === 'landslide' ? 'text-amber-400' : 'text-amber-600'}`} />
+              <Mountain className={`w-4 h-4 ${activePlaybook === 'landslide' ? 'text-white' : 'text-amber-600'}`} />
               <span>Landslides & Slope Stability</span>
             </button>
 
@@ -157,18 +152,18 @@ export default function Playbooks({ lowBandwidth }) {
               onClick={() => setActivePlaybook('earthquake')}
               className={`px-3.5 py-2 rounded-lg text-xs md:text-sm font-bold flex items-center gap-2 transition-all ${
                 activePlaybook === 'earthquake'
-                  ? 'bg-gov-navy text-white shadow-md border-b-2 border-gov-saffron'
+                  ? 'bg-purple-600 text-white shadow-md'
                   : 'bg-white text-slate-700 hover:bg-slate-100 border border-slate-200'
               }`}
             >
-              <Activity className={`w-4 h-4 ${activePlaybook === 'earthquake' ? 'text-purple-400' : 'text-purple-600'}`} />
+              <Activity className={`w-4 h-4 ${activePlaybook === 'earthquake' ? 'text-white' : 'text-purple-600'}`} />
               <span>Earthquake (Zone V Seismic)</span>
             </button>
           </div>
 
           <div className="text-[11px] text-slate-500 font-semibold flex items-center gap-1.5 pr-2">
-            <span className="w-2 h-2 rounded-full bg-gov-green"></span>
-            <span>Offline Cached • Section 35 DM Act 2005</span>
+            <span className="w-2 h-2 rounded-full bg-emerald-500"></span>
+            <span>Offline Cached</span>
           </div>
         </div>
       </div>
@@ -302,7 +297,7 @@ export default function Playbooks({ lowBandwidth }) {
               बाढ़ प्रबंधन एवं निकासी मानक प्रक्रिया | Official Flood Survival & Evacuation Protocol
             </h3>
             <p className="text-xs text-slate-600 mt-1 max-w-2xl leading-relaxed">
-              Approved by NDMA and Assam State Disaster Management Authority (ASDMA) for Brahmaputra and Barak river basin communities.
+              Standard survival protocols codified for Brahmaputra and Barak river basin communities.
             </p>
           </div>
 
@@ -474,7 +469,7 @@ export default function Playbooks({ lowBandwidth }) {
               भूकंप सुरक्षा: झुको, ढको और पकड़ो | Drop, Cover & Hold On Protocol
             </h3>
             <p className="text-xs text-slate-600 mt-1 max-w-2xl leading-relaxed">
-              Mandatory life-safety guidelines codified under the National Building Code (NBC 2016) and NDMA Earthquake Management Guidelines.
+              Standard life-safety seismic guidelines and structural evacuation protocols.
             </p>
           </div>
 

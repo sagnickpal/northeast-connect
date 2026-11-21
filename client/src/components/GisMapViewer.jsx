@@ -27,7 +27,6 @@ import {
   X,
   Crosshair
 } from 'lucide-react';
-import { TricolorStrip } from './Emblems';
 
 // Pre-defined Geographic Disaster Hotspots across North East India
 export const AFFECTED_AREAS = [
@@ -729,23 +728,21 @@ export default function GisMapViewer({
 
   return (
     <div className="space-y-4">
-      {/* Official Government GIS Header */}
+      {/* GIS & 3D Topography Header */}
       <div className="bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden">
-        <div className="bg-gov-navy text-white px-5 py-4 border-b border-gov-blue">
+        <div className="bg-slate-900 text-white px-5 py-4 border-b border-slate-800">
           <div className="flex flex-wrap items-center justify-between gap-3">
             <div>
               <div className="flex items-center gap-2 mb-1">
-                <span className="bg-gov-saffron text-slate-950 font-black text-[10px] px-2 py-0.5 rounded uppercase tracking-wide">
-                  GIS & 3D Topography Operations
+                <span className="bg-cyan-600 text-white font-black text-[10px] px-2 py-0.5 rounded uppercase tracking-wide">
+                  Spatial Intelligence
                 </span>
-                <span className="text-slate-300 text-xs font-semibold">
-                  National Disaster Management Authority • Geoinformatics Cell
+                <span className="text-slate-400 text-xs font-semibold">
+                  GIS Multi-Hazard Mapping & 3D Topographic Engine
                 </span>
               </div>
               <h2 className="text-xl md:text-2xl font-black text-white flex items-center gap-2">
-                <span>आपदा प्रभावित क्षेत्र जीआईएस मानचित्र एवं 3D स्थलाकृति</span>
-                <span className="text-gov-saffron font-light hidden md:inline">|</span>
-                <span className="text-slate-200 text-lg md:text-xl font-bold hidden md:inline">Disaster Area GIS Mapping & 3D Inundation Portal</span>
+                <span>Disaster Area GIS Mapping & 3D Topographic Simulation</span>
               </h2>
               <p className="text-xs text-slate-300 mt-1">
                 Real-time multi-hazard geo-positioning, elevation contour modeling, and 3D flood submersion simulation across North East river basins and hill slopes.
@@ -753,12 +750,12 @@ export default function GisMapViewer({
             </div>
 
             {/* Mode Switcher Buttons */}
-            <div className="flex items-center gap-1.5 bg-gov-blue/80 p-1.5 rounded-xl border border-white/20">
+            <div className="flex items-center gap-1.5 bg-slate-800 p-1.5 rounded-xl border border-slate-700">
               <button
                 onClick={() => setViewMode('2d')}
                 className={`px-3 py-1.5 rounded-lg text-xs font-bold flex items-center gap-1.5 transition-all ${
                   viewMode === '2d'
-                    ? 'bg-gov-saffron text-slate-950 shadow-md font-black'
+                    ? 'bg-cyan-500 text-slate-950 shadow-md font-black'
                     : 'text-slate-300 hover:text-white'
                 }`}
               >
@@ -770,7 +767,7 @@ export default function GisMapViewer({
                 onClick={() => setViewMode('3d')}
                 className={`px-3 py-1.5 rounded-lg text-xs font-bold flex items-center gap-1.5 transition-all ${
                   viewMode === '3d'
-                    ? 'bg-gov-saffron text-slate-950 shadow-md font-black'
+                    ? 'bg-cyan-500 text-slate-950 shadow-md font-black'
                     : 'text-slate-300 hover:text-white'
                 }`}
               >
@@ -782,7 +779,7 @@ export default function GisMapViewer({
                 onClick={() => setViewMode('split')}
                 className={`px-3 py-1.5 rounded-lg text-xs font-bold flex items-center gap-1.5 transition-all hidden lg:flex ${
                   viewMode === 'split'
-                    ? 'bg-gov-saffron text-slate-950 shadow-md font-black'
+                    ? 'bg-cyan-500 text-slate-950 shadow-md font-black'
                     : 'text-slate-300 hover:text-white'
                 }`}
               >
@@ -792,8 +789,6 @@ export default function GisMapViewer({
             </div>
           </div>
         </div>
-
-        <TricolorStrip className="h-1" />
 
         {/* Affected Area Quick-Flyto Dropdown & Layer Toggles Bar */}
         <div className="p-3 bg-slate-50 border-b border-slate-200 flex flex-wrap items-center justify-between gap-3 text-xs">

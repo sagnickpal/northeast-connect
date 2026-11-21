@@ -3,7 +3,6 @@ import {
   AlertTriangle, 
   WifiOff, 
   Globe, 
-  HelpCircle, 
   HandHeart, 
   Bot, 
   MessageSquare, 
@@ -12,16 +11,13 @@ import {
   Flame,
   Radio,
   Volume2,
-  ChevronRight,
   ShieldCheck,
   Eye,
-  Search,
-  Sparkles,
-  MapPin,
-  Mountain
+  Mountain,
+  PlusCircle,
+  LifeBuoy
 } from 'lucide-react';
 import { languages, uiTranslations } from '../data/translations';
-import { NationalEmblem, NdmaSeal, TricolorStrip } from './Emblems';
 
 export default function Navbar({
   currentLang,
@@ -30,7 +26,7 @@ export default function Navbar({
   setLowBandwidth,
   fontSize = 'normal',
   setFontSize,
-  highContrast = false,
+  highContrast,
   setHighContrast,
   onOpenSos,
   onOpenOffer,
@@ -44,59 +40,47 @@ export default function Navbar({
   const t = uiTranslations[currentLang] || uiTranslations.en;
 
   return (
-    <header className="sticky top-0 z-40 bg-white shadow-md border-b border-slate-300">
+    <header className="sticky top-0 z-40 bg-slate-900 border-b border-slate-800 shadow-xl">
       {/* =========================================================================
-          TIER 1: GIGW / S3WaaS Top Utility & Accessibility Strip
+          TIER 1: Utility & Accessibility Toolbar
          ========================================================================= */}
-      <div className="bg-[#061e38] text-slate-200 text-[11px] font-medium border-b border-[#0a2e55]">
-        <div className="max-w-7xl mx-auto px-4 py-1.5 flex flex-wrap items-center justify-between gap-2">
-          {/* Left: National Identity Header */}
+      <div className="bg-slate-950/80 backdrop-blur px-4 py-1.5 border-b border-slate-800/80 text-xs">
+        <div className="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2">
+          {/* Left: Operational Status */}
           <div className="flex items-center gap-2">
-            <span className="font-bold text-slate-100 flex items-center gap-1.5">
-              <span className="inline-block w-2.5 h-2.5 rounded-full bg-[#FF9933]"></span>
-              <span>भारत सरकार | Government of India</span>
+            <span className="flex h-2 w-2 relative">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
             </span>
-            <span className="text-slate-500 hidden sm:inline">•</span>
-            <span className="text-slate-300 hidden sm:inline">गृह मंत्रालय | Ministry of Home Affairs</span>
-            <span className="text-slate-500 hidden md:inline">•</span>
-            <span className="text-amber-300 font-semibold hidden md:inline">पूर्वोत्तर आपातकालीन प्रकोष्ठ</span>
+            <span className="text-[11px] font-bold text-slate-300">
+              Emergency Operations Active • North East India
+            </span>
           </div>
 
-          {/* Right: Accessibility Controls (Text resize, Contrast, Screen reader, Language) */}
-          <div className="flex items-center gap-3">
-            {/* Skip to Main Content */}
-            <a 
-              href="#main-content" 
-              className="text-slate-300 hover:text-white underline hidden lg:inline text-[10px]"
-            >
-              {t.skipToMain || "Skip to main content"}
-            </a>
-
-            {/* Font Size Scaling: A- / A / A+ */}
+          {/* Right: Accessibility & 2G & Language Controls */}
+          <div className="flex items-center gap-2 flex-wrap">
+            {/* Font Resizer */}
             {setFontSize && (
-              <div className="flex items-center bg-[#003366] border border-slate-600 rounded px-1.5 py-0.5 gap-1">
-                <span className="text-[10px] text-slate-400 mr-0.5 hidden sm:inline">A11y:</span>
+              <div className="flex items-center gap-1 bg-slate-900 border border-slate-700 rounded px-1.5 py-0.5">
+                <span className="text-[10px] text-slate-400 font-semibold mr-0.5">Text:</span>
                 <button
                   onClick={() => setFontSize('sm')}
-                  className={`px-1 py-0.2 text-[10px] rounded font-bold ${fontSize === 'sm' ? 'bg-[#FF9933] text-slate-950 font-black' : 'text-slate-300 hover:text-white'}`}
-                  title="Decrease Text Size"
-                  aria-label="Decrease Text Size"
+                  className={`px-1 text-[10px] rounded font-bold ${fontSize === 'sm' ? 'bg-rose-600 text-white' : 'text-slate-400 hover:text-white'}`}
+                  title="Smaller Font Size"
                 >
                   A-
                 </button>
                 <button
                   onClick={() => setFontSize('normal')}
-                  className={`px-1 py-0.2 text-[10px] rounded font-bold ${fontSize === 'normal' ? 'bg-[#FF9933] text-slate-950 font-black' : 'text-slate-300 hover:text-white'}`}
-                  title="Normal Text Size"
-                  aria-label="Normal Text Size"
+                  className={`px-1 text-[10px] rounded font-bold ${fontSize === 'normal' ? 'bg-rose-600 text-white' : 'text-slate-400 hover:text-white'}`}
+                  title="Normal Font Size"
                 >
                   A
                 </button>
                 <button
                   onClick={() => setFontSize('lg')}
-                  className={`px-1 py-0.2 text-[10px] rounded font-bold ${fontSize === 'lg' ? 'bg-[#FF9933] text-slate-950 font-black' : 'text-slate-300 hover:text-white'}`}
-                  title="Increase Text Size"
-                  aria-label="Increase Text Size"
+                  className={`px-1 text-[10px] rounded font-bold ${fontSize === 'lg' ? 'bg-rose-600 text-white' : 'text-slate-400 hover:text-white'}`}
+                  title="Larger Font Size"
                 >
                   A+
                 </button>
@@ -110,7 +94,7 @@ export default function Navbar({
                 className={`px-2 py-0.5 rounded text-[10px] font-bold border transition-colors ${
                   highContrast 
                     ? 'bg-amber-400 text-slate-950 border-amber-300 font-black' 
-                    : 'bg-[#003366] text-slate-200 border-slate-600 hover:bg-slate-700'
+                    : 'bg-slate-900 text-slate-300 border-slate-700 hover:bg-slate-800'
                 }`}
                 title="Toggle High Contrast Mode"
               >
@@ -123,17 +107,17 @@ export default function Navbar({
               onClick={() => setLowBandwidth(!lowBandwidth)}
               className={`px-2 py-0.5 rounded text-[10px] font-bold flex items-center gap-1 border transition-all ${
                 lowBandwidth 
-                  ? 'bg-emerald-400 text-slate-950 ring-2 ring-emerald-300' 
-                  : 'bg-[#003366] text-slate-200 hover:bg-slate-700 border-slate-600'
+                  ? 'bg-emerald-400 text-slate-950 font-black' 
+                  : 'bg-slate-900 text-slate-300 hover:bg-slate-800 border-slate-700'
               }`}
-              title="Disable heavy images, animations and styles for slow 2G connectivity"
+              title="Disable heavy graphics & animations for 2G network"
             >
               <WifiOff className="w-3 h-3" />
-              <span>{lowBandwidth ? "2G Mode: ON" : "2G Mode"}</span>
+              <span>{lowBandwidth ? "2G: Active" : "2G Mode"}</span>
             </button>
 
-            {/* Regional Language Picker */}
-            <div className="flex items-center gap-1 bg-[#003366] border border-slate-600 rounded px-1.5 py-0.5">
+            {/* Language Selector */}
+            <div className="flex items-center gap-1 bg-slate-900 border border-slate-700 rounded px-1.5 py-0.5">
               <Globe className="w-3 h-3 text-slate-400" />
               <select
                 value={currentLang}
@@ -141,9 +125,9 @@ export default function Navbar({
                 className="bg-transparent text-[11px] text-white focus:outline-none cursor-pointer py-0.5 font-medium"
                 aria-label="Select Language"
               >
-                {languages.map((lang) => (
-                  <option key={lang.code} value={lang.code} className="bg-[#0b2545] text-white">
-                    {lang.native} ({lang.name})
+                {languages.map(l => (
+                  <option key={l.code} value={l.code} className="bg-slate-900 text-white">
+                    {l.native} ({l.name})
                   </option>
                 ))}
               </select>
@@ -153,205 +137,175 @@ export default function Navbar({
       </div>
 
       {/* =========================================================================
-          TIER 2: Official NDMA Branding Header Banner
+          TIER 2: Brand Logo & Primary Action Bar
          ========================================================================= */}
-      <div className="bg-white border-b border-slate-200">
-        <div className="max-w-7xl mx-auto px-4 py-3 flex flex-wrap items-center justify-between gap-4">
-          {/* Left: National Emblem + NDMA Logo + Bilingual Title */}
-          <div 
-            className="flex items-center gap-3.5 cursor-pointer select-none" 
-            onClick={() => setActiveTab('statusHub')}
-          >
-            {/* Ashoka Stambh / State Emblem of India */}
-            <NationalEmblem className="h-14 sm:h-16 w-auto flex-shrink-0" />
-
-            <div className="h-12 w-[1px] bg-slate-300 hidden sm:block"></div>
-
-            {/* Official NDMA Circular Seal */}
-            <NdmaSeal className="h-12 sm:h-14 w-auto flex-shrink-0" />
-
-            {/* Bilingual Ministry & Authority Typography */}
-            <div>
-              <div className="flex items-center gap-2">
-                <span className="text-xs sm:text-sm font-extrabold text-[#003366] tracking-tight">
-                  राष्ट्रीय आपदा प्रबंधन प्राधिकरण
-                </span>
-                <span className="bg-[#FF9933]/15 text-[#b45309] border border-[#FF9933]/40 text-[9px] uppercase font-black px-1.5 py-0.2 rounded">
-                  भारत सरकार
-                </span>
-              </div>
-              <h1 className="text-base sm:text-lg md:text-xl font-black text-[#003366] tracking-tight leading-tight">
-                National Disaster Management Authority
+      <div className="max-w-7xl mx-auto px-4 py-3 flex flex-wrap items-center justify-between gap-3">
+        {/* Brand */}
+        <div 
+          onClick={() => setActiveTab('statusHub')}
+          className="flex items-center gap-3 cursor-pointer select-none group"
+        >
+          <div className="bg-gradient-to-br from-rose-600 to-rose-700 p-2.5 rounded-xl shadow-lg border border-rose-500/40 text-white flex items-center justify-center">
+            <Radio className="w-6 h-6 animate-pulse" />
+          </div>
+          <div>
+            <div className="flex items-center gap-2">
+              <h1 className="text-xl md:text-2xl font-black text-white tracking-tight">
+                NORTHEAST<span className="text-rose-500">CONNECT</span>
               </h1>
-              <p className="text-[11px] sm:text-xs text-slate-600 font-semibold flex items-center gap-1.5 mt-0.5">
-                <span>Ministry of Home Affairs, Government of India</span>
-                <span className="text-slate-400">•</span>
-                <span className="text-[#0e6606] font-bold">पूर्वोत्तर आपातकालीन प्रकोष्ठ (NE-DRR)</span>
-              </p>
+              <span className="bg-rose-500/20 text-rose-400 border border-rose-500/30 text-[9px] font-black uppercase px-1.5 py-0.2 rounded tracking-wider">
+                Emergency 24x7
+              </span>
             </div>
+            <p className="text-xs text-slate-400 font-medium">
+              Community Emergency Assistant • Flood, Landslide & Disaster Response
+            </p>
           </div>
+        </div>
 
-          {/* Right: Official Emergency Helpline Numbers & Rapid Citizen Actions */}
-          <div className="flex items-center flex-wrap gap-2.5 ml-auto">
-            {/* National Emergency Hotline Badges */}
-            <div className="hidden lg:flex items-center gap-2 mr-2 bg-slate-50 border border-slate-300 rounded-lg p-1.5">
-              <a
-                href="tel:112"
-                className="flex items-center gap-1.5 px-2 py-1 bg-red-50 hover:bg-red-100 border border-red-200 rounded text-red-900 transition-colors"
-                title="Dial National Emergency"
-              >
-                <div className="w-2 h-2 rounded-full bg-red-600 animate-ping"></div>
-                <div className="text-left">
-                  <div className="text-[9px] font-bold text-red-700 uppercase leading-none">Emergency</div>
-                  <div className="text-xs font-black text-red-900 leading-tight">112</div>
-                </div>
-              </a>
+        {/* Emergency Call-To-Actions */}
+        <div className="flex items-center gap-2 flex-wrap">
+          {/* SOS Help Button */}
+          <button
+            onClick={onOpenSos}
+            className="bg-rose-600 hover:bg-rose-700 text-white font-black px-4 py-2 rounded-xl text-xs shadow-lg flex items-center gap-1.5 transition-all active:scale-95 border border-rose-500 animate-pulse"
+          >
+            <AlertTriangle className="w-4 h-4" />
+            <span>{t.sosButton || "Need Help / SOS"}</span>
+          </button>
 
-              <a
-                href="tel:1070"
-                className="flex items-center gap-1.5 px-2 py-1 bg-blue-50 hover:bg-blue-100 border border-blue-200 rounded text-[#003366] transition-colors"
-                title="Dial State Disaster SEOC Helpline"
-              >
-                <div className="text-left">
-                  <div className="text-[9px] font-bold text-blue-700 uppercase leading-none">Disaster SEOC</div>
-                  <div className="text-xs font-black text-[#003366] leading-tight">1070</div>
-                </div>
-              </a>
-            </div>
+          {/* Offer Help Button */}
+          <button
+            onClick={onOpenOffer}
+            className="bg-emerald-600 hover:bg-emerald-700 text-white font-bold px-3.5 py-2 rounded-xl text-xs shadow-md flex items-center gap-1.5 transition-all active:scale-95 border border-emerald-500"
+          >
+            <HandHeart className="w-4 h-4" />
+            <span className="hidden sm:inline">{t.offerButton || "Offer Supplies"}</span>
+            <span className="sm:hidden">Offer</span>
+          </button>
 
-            {/* Primary Citizen Action Buttons */}
-            <button
-              onClick={onOpenSos}
-              className="bg-[#b91c1c] hover:bg-red-800 text-white font-black px-3.5 py-2 rounded-md shadow flex items-center gap-2 text-xs uppercase tracking-wide transition-all transform active:scale-95 animate-pulse-sos border border-red-500"
-            >
-              <AlertTriangle className="w-4 h-4 text-white" />
-              <span>{t.sosButton || "Emergency SOS"}</span>
-            </button>
+          {/* Siren / Strobe Alarm */}
+          <button
+            onClick={onOpenAlarm}
+            className="bg-amber-500 hover:bg-amber-600 text-slate-950 font-black p-2 rounded-xl text-xs border border-amber-600 shadow-md active:scale-95"
+            title="Acoustic Siren & Rescue Strobe"
+          >
+            <BellRing className="w-4 h-4" />
+          </button>
 
-            <button
-              onClick={onOpenOffer}
-              className="bg-[#0e6606] hover:bg-green-800 text-white font-bold px-3 py-2 rounded-md text-xs shadow flex items-center gap-1.5 transition-all active:scale-95 border border-green-500"
-            >
-              <HandHeart className="w-4 h-4" />
-              <span className="hidden sm:inline">{t.offerButton || "Offer Supplies"}</span>
-              <span className="sm:hidden">Offer</span>
-            </button>
-
-            {/* Siren / Audio Distress Beacon */}
-            <button
-              onClick={onOpenAlarm}
-              className="bg-amber-500 hover:bg-amber-600 text-slate-950 font-black p-2 rounded-md text-xs border border-amber-600 shadow-sm active:scale-95"
-              title="Activate acoustic emergency siren & visual strobe torch"
-              aria-label="Emergency Siren"
-            >
-              <BellRing className="w-4 h-4 text-slate-950" />
-            </button>
-          </div>
+          {/* Offline SMS/USSD */}
+          <button
+            onClick={onOpenSms}
+            className="bg-slate-800 hover:bg-slate-700 text-slate-200 font-bold p-2 rounded-xl text-xs border border-slate-700 shadow-sm"
+            title="Offline 2G SMS & USSD Codes"
+          >
+            <MessageSquare className="w-4 h-4 text-cyan-400" />
+          </button>
         </div>
       </div>
 
       {/* =========================================================================
-          TIER 3: Primary Government Navigation Bar (Deep Navy Blue / Gold Accent)
+          TIER 3: Navigation Bar
          ========================================================================= */}
-      <nav className="bg-[#003366] text-white shadow-inner border-b-2 border-[#d97706]" aria-label="Main Navigation">
+      <nav className="bg-slate-950 text-white border-t border-slate-800" aria-label="Main Navigation">
         <div className="max-w-7xl mx-auto px-4 overflow-x-auto scrollbar-none">
           <div className="flex items-center gap-1 text-xs font-bold py-1 min-w-max">
-            {/* 1. Status Hub (Home) */}
+            {/* 1. Status Hub */}
             <button
               onClick={() => setActiveTab('statusHub')}
-              className={`px-3.5 py-2 rounded-t transition-all flex items-center gap-1.5 border-b-2 ${
+              className={`px-3.5 py-2 rounded-lg transition-all flex items-center gap-1.5 ${
                 activeTab === 'statusHub'
-                  ? 'bg-[#061e38] text-[#fcd34d] border-[#FF9933] shadow-sm font-extrabold'
-                  : 'text-slate-100 hover:bg-[#0b3b60] hover:text-white border-transparent'
+                  ? 'bg-rose-600 text-white shadow-md'
+                  : 'text-slate-300 hover:bg-slate-800 hover:text-white'
               }`}
             >
               <span>{t.tabs.statusHub}</span>
               {stats && (
-                <span className="bg-[#d97706] text-slate-950 text-[10px] px-1.5 py-0.2 rounded font-black">
+                <span className="bg-white/20 text-white text-[10px] px-1.5 py-0.2 rounded font-black">
                   {stats.activeReliefCamps} Camps
                 </span>
               )}
             </button>
 
-            {/* 1.5. GIS & 3D Topography Portal */}
+            {/* 2. GIS & 3D Topography Portal */}
             <button
               onClick={() => setActiveTab('gisMap')}
-              className={`px-3.5 py-2 rounded-t transition-all flex items-center gap-1.5 border-b-2 ${
+              className={`px-3.5 py-2 rounded-lg transition-all flex items-center gap-1.5 ${
                 activeTab === 'gisMap'
-                  ? 'bg-[#061e38] text-[#fcd34d] border-[#FF9933] shadow-sm font-extrabold'
-                  : 'text-cyan-200 hover:bg-[#0b3b60] hover:text-white border-transparent'
+                  ? 'bg-cyan-600 text-white shadow-md font-extrabold'
+                  : 'text-cyan-300 hover:bg-slate-800 hover:text-white'
               }`}
             >
-              <Mountain className="w-3.5 h-3.5 text-cyan-400" />
+              <Mountain className="w-3.5 h-3.5" />
               <span>{t.tabs.gisMap || "GIS & 3D Map"}</span>
-              <span className="bg-cyan-500/20 text-cyan-300 border border-cyan-400/40 text-[9px] px-1 py-0.2 rounded font-black">
+              <span className="bg-cyan-400/20 text-cyan-300 text-[9px] px-1 py-0.2 rounded font-black border border-cyan-400/30">
                 3D LIVE
               </span>
             </button>
 
-            {/* 2. Need Help / SOS Queue */}
+            {/* 3. Need Help / SOS Queue */}
             <button
               onClick={() => setActiveTab('assistance')}
-              className={`px-3.5 py-2 rounded-t transition-all flex items-center gap-1.5 border-b-2 ${
+              className={`px-3.5 py-2 rounded-lg transition-all flex items-center gap-1.5 ${
                 activeTab === 'assistance'
-                  ? 'bg-[#061e38] text-[#fcd34d] border-[#FF9933] shadow-sm font-extrabold'
-                  : 'text-slate-100 hover:bg-[#0b3b60] hover:text-white border-transparent'
+                  ? 'bg-rose-600 text-white shadow-md'
+                  : 'text-slate-300 hover:bg-slate-800 hover:text-white'
               }`}
             >
               <AlertTriangle className="w-3.5 h-3.5 text-rose-400" />
               <span>{t.tabs.assistance}</span>
               {stats && stats.activeSosRequests > 0 && (
-                <span className="bg-red-600 text-white text-[10px] px-1.5 py-0.2 rounded font-black animate-pulse">
+                <span className="bg-red-500 text-white text-[10px] px-1.5 py-0.2 rounded font-black">
                   {stats.activeSosRequests} SOS
                 </span>
               )}
             </button>
 
-            {/* 3. Volunteer & Logistics Reserve */}
+            {/* 4. Volunteer & Logistics Reserve */}
             <button
               onClick={() => setActiveTab('volunteers')}
-              className={`px-3.5 py-2 rounded-t transition-all flex items-center gap-1.5 border-b-2 ${
+              className={`px-3.5 py-2 rounded-lg transition-all flex items-center gap-1.5 ${
                 activeTab === 'volunteers'
-                  ? 'bg-[#061e38] text-[#fcd34d] border-[#FF9933] shadow-sm font-extrabold'
-                  : 'text-slate-100 hover:bg-[#0b3b60] hover:text-white border-transparent'
+                  ? 'bg-emerald-600 text-white shadow-md'
+                  : 'text-slate-300 hover:bg-slate-800 hover:text-white'
               }`}
             >
               <HandHeart className="w-3.5 h-3.5 text-emerald-400" />
               <span>{t.tabs.volunteers}</span>
             </button>
 
-            {/* 4. Disaster Guidelines & Survival Go-Bag */}
+            {/* 5. Disaster Guidelines & Survival Go-Bag */}
             <button
               onClick={() => setActiveTab('playbooks')}
-              className={`px-3.5 py-2 rounded-t transition-all flex items-center gap-1.5 border-b-2 ${
+              className={`px-3.5 py-2 rounded-lg transition-all flex items-center gap-1.5 ${
                 activeTab === 'playbooks'
-                  ? 'bg-[#061e38] text-[#fcd34d] border-[#FF9933] shadow-sm font-extrabold'
-                  : 'text-slate-100 hover:bg-[#0b3b60] hover:text-white border-transparent'
+                  ? 'bg-amber-600 text-white shadow-md'
+                  : 'text-slate-300 hover:bg-slate-800 hover:text-white'
               }`}
             >
               <span>{t.tabs.playbooks}</span>
             </button>
 
-            {/* 5. Emergency Helplines Directory */}
+            {/* 6. Emergency Helplines Directory */}
             <button
               onClick={() => setActiveTab('directory')}
-              className={`px-3.5 py-2 rounded-t transition-all flex items-center gap-1.5 border-b-2 ${
+              className={`px-3.5 py-2 rounded-lg transition-all flex items-center gap-1.5 ${
                 activeTab === 'directory'
-                  ? 'bg-[#061e38] text-[#fcd34d] border-[#FF9933] shadow-sm font-extrabold'
-                  : 'text-slate-100 hover:bg-[#0b3b60] hover:text-white border-transparent'
+                  ? 'bg-blue-600 text-white shadow-md'
+                  : 'text-slate-300 hover:bg-slate-800 hover:text-white'
               }`}
             >
               <PhoneCall className="w-3.5 h-3.5 text-emerald-400" />
               <span>{t.tabs.directory}</span>
             </button>
 
-            {/* 6. Operations Control Room (DDMA / SDRF) */}
+            {/* 7. Operations Control Room */}
             <button
               onClick={() => setActiveTab('coordinator')}
-              className={`px-3.5 py-2 rounded-t transition-all flex items-center gap-1.5 border-b-2 ${
+              className={`px-3.5 py-2 rounded-lg transition-all flex items-center gap-1.5 ${
                 activeTab === 'coordinator'
-                  ? 'bg-[#061e38] text-[#fcd34d] border-[#FF9933] shadow-sm font-extrabold'
-                  : 'text-amber-200 hover:bg-[#0b3b60] hover:text-white border-transparent'
+                  ? 'bg-purple-600 text-white shadow-md'
+                  : 'text-amber-300 hover:bg-slate-800 hover:text-white'
               }`}
             >
               <Flame className="w-3.5 h-3.5 text-amber-400" />
@@ -364,53 +318,39 @@ export default function Navbar({
             </button>
 
             {/* Vertical Divider */}
-            <div className="h-5 w-[1px] bg-slate-500 mx-1"></div>
+            <div className="h-5 w-[1px] bg-slate-800 mx-1"></div>
 
-            {/* 7. AI Grounded Guide Assistant Button */}
+            {/* 8. AI Grounded Guide Assistant */}
             <button
               onClick={onOpenAi}
-              className="bg-[#0b3b60] hover:bg-[#164e63] text-cyan-200 border border-cyan-400/40 px-2.5 py-1.5 rounded flex items-center gap-1 text-[11px] font-bold"
+              className="bg-slate-800 hover:bg-slate-700 text-cyan-200 border border-cyan-400/30 px-3 py-1.5 rounded-lg flex items-center gap-1.5 text-xs font-bold"
             >
-              <Bot className="w-3.5 h-3.5 text-cyan-300" />
+              <Bot className="w-3.5 h-3.5 text-cyan-400" />
               <span>{t.aiGuideButton || "AI Guide"}</span>
-            </button>
-
-            {/* 8. Offline SMS / USSD Fallback */}
-            <button
-              onClick={onOpenSms}
-              className="bg-[#0b3b60] hover:bg-[#164e63] text-amber-200 border border-amber-400/40 px-2.5 py-1.5 rounded flex items-center gap-1 text-[11px] font-bold"
-              title="Generate standardized SMS or dial *112# USSD without internet"
-            >
-              <MessageSquare className="w-3.5 h-3.5 text-amber-300" />
-              <span>{t.smsFallbackButton || "SMS / USSD"}</span>
             </button>
           </div>
         </div>
       </nav>
 
       {/* =========================================================================
-          TIER 4: Live Official Emergency Alert Ticker / Marquee
+          TIER 4: Emergency Alert Banner Ticker
          ========================================================================= */}
-      <div className="bg-[#fffbeb] border-b border-amber-200 text-amber-950 text-xs py-1 px-4 flex items-center gap-3 overflow-hidden">
-        <div className="flex-shrink-0 flex items-center gap-1.5 bg-[#d97706] text-white text-[10px] font-black uppercase px-2 py-0.5 rounded shadow-sm">
-          <span className="w-2 h-2 rounded-full bg-white animate-ping"></span>
-          <span>ताज़ा चेतावनी / FLASH ALERT</span>
-        </div>
+      <div className="bg-rose-950 border-t border-rose-900/80 text-rose-200 px-4 py-1.5 flex items-center justify-between text-xs">
+        <div className="max-w-7xl mx-auto w-full flex items-center justify-between gap-3 overflow-hidden">
+          <div className="flex items-center gap-2 flex-shrink-0">
+            <span className="bg-rose-600 text-white text-[9px] font-black uppercase px-1.5 py-0.2 rounded flex items-center gap-1">
+              <span className="w-1.5 h-1.5 rounded-full bg-white animate-ping"></span>
+              <span>LIVE ALERT</span>
+            </span>
+          </div>
 
-        <div className="flex-1 overflow-hidden">
-          <div className="animate-ticker text-xs font-semibold text-slate-800">
-            🚨 <strong>CWC FLOOD WARNING:</strong> Brahmaputra at Guwahati (DC Court Ghat) is flowing at 50.12 m (ABOVE DANGER LEVEL by 0.44 m; Trend: RISING +3 cm/hr) &nbsp;•&nbsp; 
-            🛑 <strong>HIGHWAY ADVISORY:</strong> NH-06 Sonapur Tunnel section is CLOSED due to massive rockfall; clearance ETA 6-8 hours by BRO Project Dantak &nbsp;•&nbsp; 
-            💧 <strong>HEALTH S.O.P.:</strong> Municipal drinking water advisory active in Cachar & Kamrup Metro — boil water for 3 minutes before drinking &nbsp;•&nbsp; 
-            📞 <strong>EMERGENCY RESCUE:</strong> Dial toll-free 112 or 1070 for immediate NDRF water boat evacuation.
+          <div className="flex-1 overflow-hidden">
+            <div className="inline-block whitespace-nowrap animate-marquee text-[11px] font-semibold text-rose-100">
+              🚨 <strong>NH-06 CLOSED:</strong> Sonapur tunnel landslide blocked. • <strong>BRAHMAPUTRA:</strong> Water level +0.44m above danger at Guwahati DC Court. • <strong>BARAK RIVER:</strong> Water rising at Silchar (+5 cm/hr). • <strong>FREE BEDS:</strong> Cotton Univ (140), Silchar HS (40). Dial <strong>112</strong> for rescue.
+            </div>
           </div>
         </div>
       </div>
-
-      {/* =========================================================================
-          TIER 5: Indian National Flag Tricolor Ribbon Strip
-         ========================================================================= */}
-      <TricolorStrip height="h-1" />
     </header>
   );
 }

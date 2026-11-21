@@ -23,7 +23,6 @@ import {
   PhoneCall
 } from 'lucide-react';
 import { uiTranslations } from '../data/translations';
-import { TricolorStrip } from './Emblems';
 
 export default function TwoWayCoordination({
   requests,
@@ -66,26 +65,24 @@ export default function TwoWayCoordination({
 
   return (
     <div className="space-y-6">
-      {/* Official Government Incident Coordination Header */}
+      {/* Community Incident Coordination Header */}
       <div className="bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden">
-        <div className="bg-gov-navy text-white px-5 py-4 border-b border-gov-blue">
+        <div className="bg-slate-900 text-white px-5 py-4 border-b border-slate-800">
           <div className="flex flex-wrap items-center justify-between gap-3">
             <div>
               <div className="flex items-center gap-2 mb-1">
-                <span className="bg-gov-saffron text-slate-950 font-black text-[10px] px-2 py-0.5 rounded uppercase tracking-wide">
-                  Incident Response System (IRS)
+                <span className="bg-rose-600 text-white font-black text-[10px] px-2 py-0.5 rounded uppercase tracking-wide">
+                  Community Coordination
                 </span>
-                <span className="text-slate-300 text-xs font-semibold">
-                  Civil Protection & Community Operations
+                <span className="text-slate-400 text-xs font-semibold">
+                  Civil Protection & Emergency Assistance
                 </span>
               </div>
               <h2 className="text-xl md:text-2xl font-black text-white flex items-center gap-2">
-                <span>आपदा राहत एवं नागरिक सहायता समन्वय</span>
-                <span className="text-gov-saffron font-light hidden md:inline">|</span>
-                <span className="text-slate-200 text-lg md:text-xl font-bold hidden md:inline">Citizen SOS & Relief Coordination</span>
+                <span>Emergency Help Requests & Volunteer Board</span>
               </h2>
               <p className="text-xs text-slate-300 mt-1">
-                Real-time citizen distress queue with automated AI triage and community volunteer logistics registry.
+                Real-time citizen SOS distress queue with automated AI triage and community volunteer logistics registry.
               </p>
             </div>
 
@@ -93,15 +90,15 @@ export default function TwoWayCoordination({
               {activeSubTab === 'requests' ? (
                 <button
                   onClick={onOpenSos}
-                  className="bg-gov-red hover:bg-red-700 text-white text-xs font-black px-4 py-2.5 rounded-lg flex items-center gap-2 shadow-md transition-all active:scale-95 border border-red-500"
+                  className="bg-rose-600 hover:bg-rose-700 text-white text-xs font-black px-4 py-2.5 rounded-lg flex items-center gap-2 shadow-md transition-all active:scale-95 border border-rose-500"
                 >
                   <PlusCircle className="w-4 h-4" />
-                  <span>Transmit New SOS Request</span>
+                  <span>Log New SOS Request</span>
                 </button>
               ) : (
                 <button
                   onClick={onOpenOffer}
-                  className="bg-gov-green hover:bg-emerald-700 text-white text-xs font-black px-4 py-2.5 rounded-lg flex items-center gap-2 shadow-md transition-all active:scale-95 border border-emerald-500"
+                  className="bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-black px-4 py-2.5 rounded-lg flex items-center gap-2 shadow-md transition-all active:scale-95 border border-emerald-500"
                 >
                   <PlusCircle className="w-4 h-4" />
                   <span>Register Volunteer / Logistics Offer</span>
@@ -110,8 +107,6 @@ export default function TwoWayCoordination({
             </div>
           </div>
         </div>
-
-        <TricolorStrip className="h-1" />
 
         {/* Sub-Header Tabs */}
         <div className="p-3 bg-slate-50 border-b border-slate-200 flex flex-wrap items-center justify-between gap-2">

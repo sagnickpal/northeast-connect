@@ -12,7 +12,6 @@ import AiAssistantModal from './components/AiAssistantModal';
 import SimplifyAdvisoryModal from './components/SimplifyAdvisoryModal';
 import SmsUssdModal from './components/SmsUssdModal';
 import EmergencyAlarmModal from './components/EmergencyAlarmModal';
-import { NationalEmblem, NdmaSeal, TricolorStrip, GovtBadges } from './components/Emblems';
 
 import {
   seedShelters,
@@ -272,7 +271,7 @@ export default function App() {
 
   return (
     <div className={`min-h-screen flex flex-col ${lowBandwidth ? 'text-only-mode' : 'bg-[#f0f3f8]'}`}>
-      {/* Official NDMA Government Navigation Header */}
+      {/* Navigation Header */}
       <Navbar
         currentLang={currentLang}
         setCurrentLang={setCurrentLang}
@@ -409,165 +408,90 @@ export default function App() {
       />
 
       {/* =========================================================================
-          OFFICIAL NDMA / S3WaaS / GIGW GOVERNMENT OF INDIA FOOTER
+          MODERN APPLICATION FOOTER
          ========================================================================= */}
-      <footer className="bg-[#0b2545] text-slate-300 text-xs border-t-2 border-[#d97706] mt-auto">
-        {/* Tricolor Accent Bar */}
-        <TricolorStrip height="h-1.5" />
-
+      <footer className="bg-slate-950 text-slate-400 text-xs border-t border-slate-800 mt-auto">
         <div className="max-w-7xl mx-auto px-4 py-8">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 pb-8 border-b border-slate-700">
-            {/* Column 1: NDMA Institutional Identity */}
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 pb-8 border-b border-slate-800">
+            {/* Column 1: Brand & Mission */}
             <div className="space-y-3">
-              <div className="flex items-center gap-3">
-                <NationalEmblem className="h-14 w-auto flex-shrink-0" dark={true} />
-                <NdmaSeal className="h-12 w-auto flex-shrink-0" dark={true} />
+              <div className="flex items-center gap-2">
+                <span className="text-base font-black text-white">NORTHEAST<span className="text-rose-500">CONNECT</span></span>
               </div>
-              <div>
-                <h4 className="text-white font-extrabold text-sm tracking-tight">
-                  राष्ट्रीय आपदा प्रबंधन प्राधिकरण
-                </h4>
-                <div className="text-amber-400 font-bold text-xs mt-0.5">
-                  National Disaster Management Authority
-                </div>
-                <p className="text-[11px] text-slate-400 mt-1 leading-relaxed">
-                  Ministry of Home Affairs, Government of India<br />
-                  NDMA Bhawan, A-1, Safdarjung Enclave,<br />
-                  New Delhi - 110029, India
-                </p>
-              </div>
-              <div className="text-[11px] text-slate-400 space-y-0.5">
-                <div><strong>Control Room:</strong> +91-11-24363260</div>
-                <div><strong>National Toll-Free:</strong> 1070 / 112</div>
+              <p className="text-[11px] text-slate-400 leading-relaxed">
+                A community-first, offline-resilient emergency assistant designed to empower local residents, gaonburas, and volunteer response teams during monsoon floods, landslides, and natural disasters across North East India.
+              </p>
+              <div className="text-[11px] text-slate-400">
+                PWA Cached • 2G Network Resilient • Zero Tracker
               </div>
             </div>
 
-            {/* Column 2: Government & Disaster Management Links */}
+            {/* Column 2: Regional Coverage */}
             <div>
-              <h5 className="text-white font-bold text-xs uppercase tracking-wider border-b border-slate-700 pb-2 mb-3 flex items-center gap-1.5">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#FF9933]"></span>
-                <span>Government Portals</span>
+              <h5 className="text-white font-bold text-xs uppercase tracking-wider mb-3">
+                Regional Disaster Coverage
               </h5>
-              <ul className="space-y-2 text-[11px] text-slate-300">
-                <li>
-                  <a href="https://ndma.gov.in" target="_blank" rel="noopener noreferrer" className="hover:text-amber-300 transition-colors">
-                    • NDMA Official Portal (ndma.gov.in)
-                  </a>
-                </li>
-                <li>
-                  <a href="https://mha.gov.in" target="_blank" rel="noopener noreferrer" className="hover:text-amber-300 transition-colors">
-                    • Ministry of Home Affairs (MHA)
-                  </a>
-                </li>
-                <li>
-                  <a href="https://asdma.assam.gov.in" target="_blank" rel="noopener noreferrer" className="hover:text-amber-300 transition-colors">
-                    • Assam State Disaster Management (ASDMA)
-                  </a>
-                </li>
-                <li>
-                  <a href="https://ndrf.gov.in" target="_blank" rel="noopener noreferrer" className="hover:text-amber-300 transition-colors">
-                    • National Disaster Response Force (NDRF)
-                  </a>
-                </li>
-                <li>
-                  <a href="http://cwc.gov.in" target="_blank" rel="noopener noreferrer" className="hover:text-amber-300 transition-colors">
-                    • Central Water Commission (CWC Flood Forecast)
-                  </a>
-                </li>
-                <li>
-                  <a href="https://mausam.imd.gov.in" target="_blank" rel="noopener noreferrer" className="hover:text-amber-300 transition-colors">
-                    • India Meteorological Department (IMD)
-                  </a>
-                </li>
+              <ul className="space-y-1.5 text-[11px] text-slate-400">
+                <li>• Assam (Brahmaputra & Barak Valley Basins)</li>
+                <li>• Meghalaya (Shillong & Jaintia Hill Slope Corridors)</li>
+                <li>• Arunachal Pradesh (Siang, Subansiri & High Ridges)</li>
+                <li>• Nagaland (NH-29 Paglapahar-Kohima Pass)</li>
+                <li>• Manipur (Imphal Basin & Moreh Route)</li>
+                <li>• Mizoram, Tripura & Sikkim Hill Divisions</li>
               </ul>
             </div>
 
-            {/* Column 3: Emergency Helplines & Rescue */}
+            {/* Column 3: 24x7 Emergency Helplines */}
             <div>
-              <h5 className="text-white font-bold text-xs uppercase tracking-wider border-b border-slate-700 pb-2 mb-3 flex items-center gap-1.5">
-                <span className="w-1.5 h-1.5 rounded-full bg-rose-500"></span>
-                <span>National Helplines (24x7)</span>
+              <h5 className="text-white font-bold text-xs uppercase tracking-wider mb-3">
+                Emergency Helplines (24x7)
               </h5>
               <ul className="space-y-1.5 text-[11px] text-slate-300">
-                <li className="flex justify-between border-b border-slate-800 pb-1">
+                <li className="flex justify-between border-b border-slate-900 pb-1">
                   <span>National Emergency:</span>
-                  <strong className="text-amber-400 font-mono text-xs">112</strong>
+                  <strong className="text-rose-400 font-mono text-xs">112</strong>
                 </li>
-                <li className="flex justify-between border-b border-slate-800 pb-1">
-                  <span>State Disaster SEOC:</span>
+                <li className="flex justify-between border-b border-slate-900 pb-1">
+                  <span>Disaster Control Room:</span>
                   <strong className="text-amber-400 font-mono text-xs">1070</strong>
                 </li>
-                <li className="flex justify-between border-b border-slate-800 pb-1">
-                  <span>Ambulance Emergency:</span>
-                  <strong className="text-amber-400 font-mono text-xs">108</strong>
+                <li className="flex justify-between border-b border-slate-900 pb-1">
+                  <span>Medical Ambulance:</span>
+                  <strong className="text-emerald-400 font-mono text-xs">108</strong>
                 </li>
-                <li className="flex justify-between border-b border-slate-800 pb-1">
+                <li className="flex justify-between border-b border-slate-900 pb-1">
                   <span>Fire & Water Rescue:</span>
                   <strong className="text-amber-400 font-mono text-xs">101</strong>
                 </li>
-                <li className="flex justify-between border-b border-slate-800 pb-1">
-                  <span>Electrical Spark (APDCL):</span>
-                  <strong className="text-amber-400 font-mono text-xs">1912</strong>
-                </li>
                 <li className="flex justify-between pb-1">
-                  <span>Women Helpline:</span>
-                  <strong className="text-amber-400 font-mono text-xs">1091</strong>
+                  <span>Power Grid Emergency:</span>
+                  <strong className="text-cyan-400 font-mono text-xs">1912</strong>
                 </li>
               </ul>
             </div>
 
-            {/* Column 4: S3WaaS / Digital India Compliance */}
-            <div className="space-y-3">
-              <h5 className="text-white font-bold text-xs uppercase tracking-wider border-b border-slate-700 pb-2 mb-3 flex items-center gap-1.5">
-                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
-                <span>Digital Governance</span>
+            {/* Column 4: Key Platform Features */}
+            <div className="space-y-2">
+              <h5 className="text-white font-bold text-xs uppercase tracking-wider mb-3">
+                Core Capabilities
               </h5>
-              <p className="text-[11px] text-slate-400 leading-relaxed">
-                Northeast Connect is a regional crisis coordination extension aligned with the 
-                <strong> National Disaster Management Framework</strong> and S3WaaS standards.
-              </p>
-
-              <GovtBadges />
-
-              <div className="text-[10px] text-slate-400 bg-slate-900/60 p-2.5 rounded border border-slate-700 space-y-1">
-                <div>• W3C WCAG 2.1 Level AA Compliant</div>
-                <div>• GIGW Certified Indian Govt Web Standards</div>
-                <div>• End-to-end 2G Ultra-Low Bandwidth Resilient</div>
+              <div className="text-[11px] text-slate-400 space-y-1.5">
+                <div>🗺️ <strong>Interactive GIS & 3D Topography</strong></div>
+                <div>🌊 <strong>+5.5m Flood Rise Simulation</strong></div>
+                <div>📡 <strong>Offline 2G SMS & USSD Dialers (*112#)</strong></div>
+                <div>🔊 <strong>Acoustic Siren & Rescue Strobe</strong></div>
+                <div>🎒 <strong>Aapda Mitra 72-Hour Survival Go-Bag</strong></div>
               </div>
             </div>
           </div>
 
-          {/* Mandatory GIGW Website Policies Strip */}
-          <div className="pt-6 flex flex-wrap items-center justify-between gap-4 text-[11px] text-slate-400">
-            <div className="flex flex-wrap items-center gap-3 text-slate-300">
-              <a href="#main-content" className="hover:text-white transition-colors">Website Policies</a>
-              <span>|</span>
-              <a href="#main-content" className="hover:text-white transition-colors">Terms of Use</a>
-              <span>|</span>
-              <a href="#main-content" className="hover:text-white transition-colors">Privacy Policy</a>
-              <span>|</span>
-              <a href="#main-content" className="hover:text-white transition-colors">Accessibility Statement</a>
-              <span>|</span>
-              <a href="#main-content" className="hover:text-white transition-colors">Hyperlinking Policy</a>
-              <span>|</span>
-              <a href="#main-content" className="hover:text-white transition-colors">Help</a>
-              <span>|</span>
-              <a href="#main-content" className="hover:text-white transition-colors">Contact Us</a>
+          <div className="pt-6 flex flex-wrap items-center justify-between gap-4 text-[11px] text-slate-500">
+            <div>
+              © 2026 Northeast Connect. Open-source humanitarian disaster assistance.
             </div>
-
-            <div className="text-right text-[10px] text-slate-400">
-              Last Reviewed & Updated: <strong>21 November 2026</strong>
+            <div className="flex items-center gap-3">
+              <span>Built for community resilience in North East India</span>
             </div>
-          </div>
-
-          {/* Copyright & Hosting Disclosures */}
-          <div className="mt-4 pt-4 border-t border-slate-800 text-center text-[10px] text-slate-400 space-y-1">
-            <p>
-              Content Managed by <strong>National Disaster Management Authority (NDMA)</strong>, Ministry of Home Affairs, Government of India.
-            </p>
-            <p className="text-slate-400">
-              Designed, Developed and Hosted by <strong>National Informatics Centre (NIC)</strong> / North East Disaster Risk Reduction Cell (NE-DRR).
-            </p>
           </div>
         </div>
       </footer>
