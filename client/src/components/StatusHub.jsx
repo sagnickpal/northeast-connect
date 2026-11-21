@@ -18,7 +18,9 @@ import {
   ExternalLink,
   LifeBuoy,
   ChevronRight,
-  Radio
+  Radio,
+  Map as MapIcon,
+  Mountain
 } from 'lucide-react';
 import { uiTranslations } from '../data/translations';
 import { TricolorStrip } from './Emblems';
@@ -31,7 +33,8 @@ export default function StatusHub({
   currentLang,
   lowBandwidth,
   onOpenSimplifyModal,
-  initialSubTab = 'shelters'
+  initialSubTab = 'shelters',
+  onNavigateToTab
 }) {
   const t = uiTranslations[currentLang] || uiTranslations.en;
   const [selectedSubTab, setSelectedSubTab] = useState(initialSubTab); // shelters, roads, gauges, advisories
@@ -192,6 +195,39 @@ export default function StatusHub({
           </div>
         </div>
       </section>
+
+      {/* =========================================================================
+          GIS & 3D TOPOGRAPHY QUICK LAUNCH BANNER
+         ========================================================================= */}
+      <div className="bg-gradient-to-r from-slate-900 via-gov-navy to-slate-900 border border-slate-700 p-4 rounded-xl text-white flex flex-wrap items-center justify-between gap-3 shadow-md">
+        <div className="flex items-center gap-3">
+          <div className="bg-gov-blue p-2.5 rounded-lg border border-cyan-400/30 text-cyan-300">
+            <Mountain className="w-6 h-6 text-cyan-300" />
+          </div>
+          <div>
+            <div className="flex items-center gap-2">
+              <span className="bg-gov-saffron text-slate-950 text-[10px] font-black uppercase px-1.5 py-0.2 rounded">
+                Spatial GIS & 3D Engine
+              </span>
+              <span className="text-xs text-cyan-200 font-semibold">Geoinformatics Operations Cell</span>
+            </div>
+            <h3 className="text-base font-extrabold text-white mt-0.5">
+              Disaster Area GIS Mapping & 3D Topographic Submersion View
+            </h3>
+            <p className="text-xs text-slate-300">
+              Interactive satellite & contour GIS mapping of Brahmaputra/Barak flood basins, hill cut landslides, live SOS coordinates, and +5.5m 3D water rise simulation.
+            </p>
+          </div>
+        </div>
+
+        <button
+          onClick={() => onNavigateToTab && onNavigateToTab('gisMap')}
+          className="bg-gov-saffron hover:bg-amber-500 text-slate-950 font-black px-4 py-2.5 rounded-lg text-xs flex items-center gap-2 shadow-md transition-all active:scale-95"
+        >
+          <MapIcon className="w-4 h-4" />
+          <span>Launch 3D GIS Portal</span>
+        </button>
+      </div>
 
       {/* =========================================================================
           GOVERNMENT SUB-NAVIGATION TABS & STATE SELECTOR

@@ -20,7 +20,19 @@
 - **Water & Power Advisories**: Public Health Engineering Department (PHED) boiling mandates, halogen tablet distribution points, and electrical substation safety warnings.
 - **Strict Verification Tags**: All records show verified authorities (e.g., *Kamrup DDMA*, *BRO Project Dantak*) and exact timestamps.
 
-### 3. Two-Way Assistance & Resource Coordination
+### 3. GIS Multi-Hazard Mapping & 3D Topographic Simulation
+- **2D Cartographic Multi-Hazard GIS Map**:
+  - High-precision geospatial coordinate mapping (WGS84 datum) for all 8 North Eastern states.
+  - Multi-layer toggles: Flood Inundation Zones, Active SOS Distress Pins, Safe Relief Camps, Highway Blockages, and CWC River Gauge Stations.
+  - Interactive Proximity Tool: Click any point to calculate the radial distance (km) and estimated evacuation transit time to the nearest safe relief shelter.
+  - Hotspot Fly-to Selector: Instantly focus on Guwahati, Silchar / Cachar Basin, Sonapur Landslide Corridor, Dhemaji Embankment Breach, and Paglapahar Hill Pass.
+- **Interactive 3D Topographic & Inundation Visualizer**:
+  - Real-time 3D elevation mesh rendering with depth sorting and isometric/perspective projection.
+  - **Dynamic Flood Rise Slider**: Interactive +0m to +5.5m water rise simulation that visually submerges low-lying valleys, roads, and villages while highlighting elevated shelters.
+  - **3D Render Shader Modes**: Hypsometric Elevation Tint, Satellite Disaster Simulation, and FLIR Thermal Infrared Rescue Drone Camera.
+  - **Camera Controls**: Full 360° mouse drag orbit, tilt/pitch angle control, zoom, and auto-orbit drone flight mode.
+
+### 4. Two-Way Assistance & Resource Coordination
 - **Need Help / SOS**: Residents or ward gaonburas can log structured emergency requests with location, landmark, count of affected persons, and vulnerability tags (infant, pregnant, elderly, injured, roof-trapped).
 - **Offer Help Board**: Volunteers, NGOs, and community groups can register available mechanized boats, 4x4 snorkel trucks, medical doctors, and hot meal kitchens.
 - **Real-Time Lifecycle Tracking**: `PENDING` ➔ `IN_PROGRESS` ➔ `DISPATCHED` ➔ `RESOLVED` (or `MERGED`).

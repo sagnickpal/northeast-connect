@@ -16,7 +16,9 @@ import {
   ShieldCheck,
   Eye,
   Search,
-  Sparkles
+  Sparkles,
+  MapPin,
+  Mountain
 } from 'lucide-react';
 import { languages, uiTranslations } from '../data/translations';
 import { NationalEmblem, NdmaSeal, TricolorStrip } from './Emblems';
@@ -269,6 +271,22 @@ export default function Navbar({
                   {stats.activeReliefCamps} Camps
                 </span>
               )}
+            </button>
+
+            {/* 1.5. GIS & 3D Topography Portal */}
+            <button
+              onClick={() => setActiveTab('gisMap')}
+              className={`px-3.5 py-2 rounded-t transition-all flex items-center gap-1.5 border-b-2 ${
+                activeTab === 'gisMap'
+                  ? 'bg-[#061e38] text-[#fcd34d] border-[#FF9933] shadow-sm font-extrabold'
+                  : 'text-cyan-200 hover:bg-[#0b3b60] hover:text-white border-transparent'
+              }`}
+            >
+              <Mountain className="w-3.5 h-3.5 text-cyan-400" />
+              <span>{t.tabs.gisMap || "GIS & 3D Map"}</span>
+              <span className="bg-cyan-500/20 text-cyan-300 border border-cyan-400/40 text-[9px] px-1 py-0.2 rounded font-black">
+                3D LIVE
+              </span>
             </button>
 
             {/* 2. Need Help / SOS Queue */}

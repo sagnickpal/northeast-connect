@@ -33,6 +33,7 @@ export const uiTranslations = {
     activeProtocol: "MONSOON FLOOD & LANDSLIDE DISASTER PROTOCOL ACTIVE",
     tabs: {
       statusHub: "Verified Status Hub",
+      gisMap: "GIS & 3D Terrain Portal",
       assistance: "Citizen SOS Queue",
       volunteers: "Volunteers & Logistics",
       playbooks: "Disaster Guidelines & Go-Bag",
@@ -80,6 +81,7 @@ export const uiTranslations = {
     activeProtocol: "বানপানী আৰু ভূমিস্খলন সতৰ্কতা সক্ৰিয়",
     tabs: {
       statusHub: "প্ৰমাণিত স্থিতি কেন্দ্ৰ",
+      gisMap: "জিআইএছ আৰু ৩ডি মানচিত্ৰ",
       assistance: "সাহায্যৰ আবেদন (SOS)",
       volunteers: "স্বেচ্ছাসেৱক আৰু সামগ্ৰী",
       playbooks: "জীৱন ৰক্ষাৰ নিৰ্দেশাৱলী",
@@ -117,6 +119,7 @@ export const uiTranslations = {
     activeProtocol: "বন্যা ও ভূমিধস জরুরি সতর্কতা সক্রিয়",
     tabs: {
       statusHub: "যাচাইকৃত পরিস্থিতি",
+      gisMap: "জিআইএস ও ৩ডি মানচিত্র",
       assistance: "সাহায্যের আবেদন",
       volunteers: "স্বেচ্ছাসেবক ও সামগ্রী",
       playbooks: "সুরক্ষা নির্দেশিকা ও গো-ব্যাগ",
@@ -154,6 +157,7 @@ export const uiTranslations = {
     activeProtocol: "दैबाना आरो हा खुरखानाय सांग्रांथि जागासिनाव",
     tabs: {
       statusHub: "सैथो खौरां थावनि",
+      gisMap: "GIS आरो 3D म्हाव",
       assistance: "मददनि आर'ज (SOS)",
       volunteers: "मदतगिरि आरो सामग्रि",
       playbooks: "रैखाथिनि बिथोन",
@@ -201,6 +205,7 @@ export const uiTranslations = {
     activeProtocol: "बाढ़ व भूस्खलन हाई अलर्ट सक्रिय",
     tabs: {
       statusHub: "सत्यापित स्थिति केंद्र",
+      gisMap: "जीआईएस एवं 3D मानचित्र",
       assistance: "मदद अनुरोध (SOS)",
       volunteers: "स्वयंसेवक व संसाधन",
       playbooks: "सुरक्षा गाइड व गो-बैग",
@@ -238,6 +243,7 @@ export const uiTranslations = {
     activeProtocol: "ঈশিং ইচাউ অমসুং চিং নিংবা হাই এলর্ত",
     tabs: {
       statusHub: "অশেংবা ফিভম",
+      gisMap: "GIS অমসুং 3D মেপ",
       assistance: "মতেং নিজবা (SOS)",
       volunteers: "ভোলুন্তীয়র অমসুং পোৎলম",
       playbooks: "কনবা ৱারেপ লাইরিক",
@@ -275,6 +281,7 @@ export const uiTranslations = {
     activeProtocol: "Ka Jingmaham Na Ka Um Shlei Bad Jingtwa Khyndew",
     tabs: {
       statusHub: "Ka Jaka Bthah Ba Shisha",
+      gisMap: "GIS & 3D Map",
       assistance: "Ki Jingkyrpad Jingiarap (SOS)",
       volunteers: "Ki Nongiarap Bad Tiarnang",
       playbooks: "Ki Rukom Ban Leh (Playbooks)",
@@ -312,6 +319,7 @@ export const uiTranslations = {
     activeProtocol: "Tuilian Leh Leimin Hlauhawm Thu Chhuah A Nung",
     tabs: {
       statusHub: "Hriattirna Dik Hmun",
+      gisMap: "GIS & 3D Map",
       assistance: "Puihna Dilna (SOS)",
       volunteers: "Tlawmngai Pawl & Bungrua",
       playbooks: "Inven Dan Bu (Playbooks)",

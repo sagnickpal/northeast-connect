@@ -5,6 +5,7 @@ import TwoWayCoordination from './components/TwoWayCoordination';
 import Playbooks from './components/Playbooks';
 import EmergencyDirectory from './components/EmergencyDirectory';
 import CoordinatorDashboard from './components/CoordinatorDashboard';
+import GisMapViewer from './components/GisMapViewer';
 import SosModal from './components/SosModal';
 import OfferHelpModal from './components/OfferHelpModal';
 import AiAssistantModal from './components/AiAssistantModal';
@@ -311,6 +312,17 @@ export default function App() {
             lowBandwidth={lowBandwidth}
             onOpenSimplifyModal={handleOpenSimplifyModal}
             initialSubTab={statusHubSubTab}
+            onNavigateToTab={handleNavigateToTab}
+          />
+        )}
+
+        {activeTab === 'gisMap' && (
+          <GisMapViewer
+            shelters={shelters}
+            roads={roads}
+            requests={requests}
+            riverGauges={riverGauges}
+            initialAreaId="all"
           />
         )}
 
