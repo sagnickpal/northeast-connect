@@ -1,0 +1,97 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji';
+  }
+}
+
+/* GIGW Accessibility: Font Resizing */
+body.font-scale-sm {
+  font-size: 87.5%;
+}
+
+body.font-scale-normal {
+  font-size: 100%;
+}
+
+body.font-scale-lg {
+  font-size: 112.5%;
+}
+
+/* GIGW Accessibility: High Contrast Mode */
+.high-contrast-mode {
+  background-color: #0b1120 !important;
+  color: #fef08a !important;
+}
+
+.high-contrast-mode header,
+.high-contrast-mode main,
+.high-contrast-mode footer,
+.high-contrast-mode div,
+.high-contrast-mode section {
+  border-color: #fef08a !important;
+}
+
+.high-contrast-mode a,
+.high-contrast-mode button {
+  color: #ffffff !important;
+  border-color: #facc15 !important;
+}
+
+/* Ultra-Low Bandwidth High Contrast Mode */
+.text-only-mode {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !important;
+  background-color: #ffffff !important;
+  color: #000000 !important;
+}
+
+.text-only-mode * {
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  text-shadow: none !important;
+  transition: none !important;
+  animation: none !important;
+  backdrop-filter: none !important;
+  background-image: none !important;
+}
+
+.text-only-mode img,
+.text-only-mode svg:not(.keep-icon),
+.text-only-mode video {
+  display: none !important;
+}
+
+/* Pulsing SOS effect */
+@keyframes pulse-sos {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(185, 28, 28, 0.7);
+  }
+  50% {
+    transform: scale(1.02);
+    box-shadow: 0 0 0 8px rgba(185, 28, 28, 0);
+  }
+}
+
+.animate-pulse-sos {
+  animation: pulse-sos 2s infinite ease-in-out;
+}
+
+/* Marquee / Alert Ticker Animation */
+@keyframes ticker {
+  0% { transform: translateX(100%); }
+  100% { transform: translateX(-100%); }
+}
+
+.animate-ticker {
+  display: inline-block;
+  white-space: nowrap;
+  animation: ticker 35s linear infinite;
+}
+
+.animate-ticker:hover {
+  animation-play-state: paused;
+}
